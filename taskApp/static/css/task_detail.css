@@ -1,0 +1,47 @@
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.task-table th,
+.task-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.task-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    
+}
+
+.task-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.task-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.task-table td {
+    font-size: 14px;
+}
+
+.table a {
+    text-decoration: none; /* Removes underline */
+    font-weight: bold;     /* Makes text bold */
+    color: #000000;     
+        display: block;        /* Makes the link a block-level element */
+        padding: 8px;          /* Adds padding around the link */
+        border-radius: 4px;    /* Rounds the corners */
+        transition: background-color 0.3s ease; /* Sets text color to black */
+}
+
+.table a:hover {
+    text-decoration: none; /* Ensures no underline on hover */
+    color: #e9e6e6;        
+    background-color: rgb(46, 56, 54);
+    
+}

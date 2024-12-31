@@ -1,0 +1,75 @@
+/* Base container for the register form */
+.register-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #41da85;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(121, 112, 112, 0.1);
+}
+
+/* Styling for the form header */
+.register-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form group styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Submit button styling */
+.btn-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+/* Login link styling */
+.btn-link {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.btn-link:hover {
+    text-decoration: underline;
+}
+
+/* Add a small gap between the login section */
+hr {
+    margin: 20px 0;
+}

@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Portfolio
+{% endblock title %}
+
+{% block content %}
+<div class="portfolio-container">
+    <!-- About Me Section -->
+    <section class="about-container text-center m-3">
+        <!-- <h2>About Me</h2> -->
+        <p>
+        I am a highly dedicated and passionate individual with a deep interest in technology and programming. Currently pursuing a Bachelor of Computer Applications (BCA) at NCIT, I have embraced a rigorous academic journey that challenges me to think critically and innovate effectively. Through hands-on experience and engaging coursework, I have built a strong foundation in computer science, gaining proficiency in programming languages like C, C++, Python, JavaScript, and frameworks like React and Django.
+<br></br>
+        My education has been a perfect blend of theory and practical application, allowing me to explore areas like web development, database management, and software design. I enjoy solving complex problems and creating efficient, user-friendly solutions, which has driven my interest in projects that require innovative thinking and technical precision.
+<br></br>
+        Beyond academics, I am constantly improving my skills and exploring new technologies to stay updated in this fast-paced field. My journey so far has not only strengthened my technical abilities but also deepened my passion for contributing to the ever-evolving world of technology. With a focus on continuous learning and growth, I am excited to take on new challenges and make a meaningful impact.
+      </p>
+
+        <div class="education-section">
+            <h2 class="toggle-section p-3" style="background-color:rgb(228, 228, 228);">Education</h2>
+            <table class="education-table" border="1">
+                <thead>
+                    <tr>
+                        <th>Degree</th>
+                        <th>Institution</th>
+                        <th>Passed Year</th>
+                        <th>GPA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Secondary School</td>
+                        <td>Shree Seti Devi Secondary School</td>
+                        <td>2018</td>
+                        <td>3.2</td>
+                    </tr>
+                    <tr>
+                        <td>High School</td>
+                        <td>Texas International Secondary School</td>
+                        <td>2021</td>
+                        <td>3.21</td>
+                    </tr>
+                    <tr>
+                        <td>Bachelors</td>
+                        <td>Nepal College of Information Technology</td>
+                        <td>Running</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-container">
+        <h2 class="p-3 text-center" style="background-color:rgb(228, 228, 228);">Skills</h2>
+        <div class="img text-center">
+            <img id="img1" class="C" src="{% static 'images/C.png' %}" alt="C">
+            <img id="img2" class="C++" src="{% static 'images/C++.png' %}" alt="C++">
+            <img id="img3" class="html" src="{% static 'images/html.png' %}" alt="HTML scripting">
+            <img id="img4" class="css" src="{% static 'images/css.png' %}" alt="CSS">
+            <img id="img5" class="javascript" src="{% static 'images/Javascript.png' %}" alt="JavaScript">
+        </div>
+        <div class="img text-center">
+            <img id="img6" class="react" src="{% static 'images/react.png' %}" alt="React">
+            <img id="img6" class="mongodb" src="{% static 'images/mongo.png' %}" alt="MongoDB">
+            <img id="img7" class="python" src="{% static 'images/python.png' %}" alt="Python">
+            <img id="img7" class="django" src="{% static 'images/django.png' %}" alt="Django">
+            <img id="img8" class="sql" src="{% static 'images/sql.png' %}" alt="SQL">
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-container">
+        <h2 class="p-3 text-center" style="background-color:rgb(228, 228, 228);">Projects</h2>
+        <div class="project">
+            <h4><a href="https://github.com/jagdish660/Bank" target="blank" style="color:black; ">Bank Management System</a></h4>
+            <p>
+          The Banking system developed for second semester project based on C language.
+          <br></br>
+          A system designed to manage bank operations, account, transactions. Users can login to the system and can perform banking transactions to other accounts, check individuals account balance and change password for self's account.
+        </p>
+        </div>
+        <div class="project">
+            <h4><a href="https://github.com/jagdish660/StudentInformationSystem_In_VBNet" target="blank" style="color:black; ">Student Management System</a></h4>
+            
+            <p>
+          The Student Management System developed for fourth semester project based on VB.Net.<br></br>
+          The system can be used by both school administration and student. Where School administration can check details of all student about their fee and courses, and can manage the account of student. Fee record can be stored on the system.</br>While, Student can login to the system and can checks his/her courses and fee details.
+        </p>
+        </div><div class="project">
+            <h4><a href="https://github.com/jagdish660/Portfolio" target="blank" style="color:black; ">Portfolio Website</a></h4>
+            
+          <p>
+          The portfolio website I developed is a modern and interactive platform built using React. <br><br> It showcases my technical skills, educational background, and projects I've worked on. The website features a clean and user-friendly design, highlighting sections such as "About Me," "Skills," "Projects," and "Contact." It includes an educational timeline, a detailed list of programming languages and frameworks I specialize in, and descriptions of key projects like a Bank Management System and a Student Management System. Additionally, the website incorporates a contact section for easy communication, making it a comprehensive representation of my professional journey and technical expertise.
+        </p>
+        </div><div class="project">
+            <h4><a href="https://github.com/jagdish660/bookBazaar" target="blank" style="color:black; ">Book Selling Application</a></h4>
+            <p>
+          The Book Selling platform developed for sixth semester project based on flutter and firebase for database.<br></br>
+          The application can be used by library management team and book enthusiasts. Where library managers can check details of books, add books, edit or update prices and add-ons of the books available and can manage the stock. All the records can be stored on the firebase.</br>While, Buyers/book enthusiasts can login to the application and can search for books, add books to the cart with add-ons available, buy books where transactions were handled by the <strong><i><a href="https://esewa.com.np" target="blank" style="color:black; ">eSewa</a></i></strong>. 
+        </p>
+        </div>
+    </section>
+</div>
+{% endblock content %}

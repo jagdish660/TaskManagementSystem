@@ -1,0 +1,109 @@
+/* Update Page Styles */
+
+/* Overall container */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fa;
+    padding: 20px;
+}
+
+/* Title */
+h1 {
+    color: #1a73e8;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form container */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Table layout for form fields */
+form table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Table row styling */
+form table td {
+    padding: 8px;
+    vertical-align: middle;
+}
+
+/* Label styling */
+form label {
+    font-weight: bold;
+    color: #333;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+/* Input fields styling */
+form input[type="text"],
+form input[type="datetime-local"],
+form textarea,
+form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Submit Button Styling */
+form .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Success button (Submit) */
+form .btn-success {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+}
+
+form .btn-success:hover {
+    background-color: #218838;
+}
+
+/* Cancel/Back button */
+form .btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+form .btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Add margin to buttons to avoid overlap */
+form .btn-sm {
+    margin-right: 10px;
+}
+
+/* Spacing between form fields */
+form .form-group {
+    margin-bottom: 20px;
+}
+

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Add Task
+{% endblock title %}
+
+{% block content %}
+    <h1 class="text-center alert alert-info">Add Task</h1>
+
+    <!-- Show error if task name is missing -->
+    {% if error %}
+        <div class="alert alert-danger">
+            {{ error }}
+        </div>
+    {% endif %}
+
+    <!-- Task form -->
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+        <!-- Task Name -->
+        <div class="form-group">
+            <label for="task_name">Task Name</label>
+            <input type="text" class="form-control" id="task_name" name="task_name" required>
+        </div>
+
+        <!-- Task Description (Optional) -->
+        <div class="form-group">
+            <label for="task_description">Task Description (Optional)</label>
+            <textarea class="form-control" id="task_description" name="task_description" rows="2"></textarea>
+        </div>
+
+        <!-- Task Deadline -->
+        <div class="form-group">
+            <label for="task_deadline">Task Deadline</label>
+            <input type="datetime-local" class="form-control" id="task_deadline" name="task_deadline" required>
+        </div>
+
+        {% if request.user.is_staff %}
+        <!-- Task Assigned User -->
+        <div class="form-group">
+            <label for="task_assigned">Assign Task To</label>
+            <select class="form-control" id="task_assigned" name="task_assigned" required>
+                <option value="">Select User</option>
+                {% for user in users %}
+                    <option value="{{ user.id }}">{{ user.username }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        {% endif %}
+
+        <!-- Task Status -->
+        <div class="form-group">
+            <label for="task_status">Task Status</label>
+            <select class="form-control" id="task_status" name="task_status" required>
+                <option value="in_progress">In Progress</option>
+                <option value="completed">Completed</option>
+                <option value="open">Open</option>
+            </select>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="add-task-button">
+            <button type="submit" class="btn btn-success">Create Task</button>
+        </div>
+        <div class="form-group">
+            <a class="btn btn-danger btn-sm" href="{% url 'tasklist' %}">Back</a>
+        </div>
+    </form>
+
+{% endblock content %}

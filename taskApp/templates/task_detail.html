@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+Task Detail
+{% endblock title %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Task Details</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>Name</th>
+            <td>{{ task.name }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ task.description }}</td>
+        </tr>
+        <tr>
+            <th>Deadline</th>
+            <td>{{ task.deadline }}</td>
+        </tr>
+        <tr>
+            <th>User Assigned</th>
+            <td>{{ task.user_assigned }}</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>{{ task.status }}</td>
+        </tr>
+    </table>
+    <div class="text-center mt-4">
+    
+      <a class="btn btn-danger" href="{% url 'search_tasks' %}">Back</a>
+    </div>
+</div>
+{% endblock %}

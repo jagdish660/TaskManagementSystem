@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Tasks
+{% endblock title %}
+
+{% block content %}
+<h1 class="text-center alert alert-info">List of Tasks</h1>
+
+{% if tasks %}
+<table class="table table-hover table-responsive" border="1">
+    <thead class="table table-dark">
+        <th>S.N.</th>
+        <th>Task Name</th>
+        <th>User Assigned</th>
+        <th>Task Description</th>
+        <th>Deadline</th>
+        <th>Status</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+    {% for i in tasks %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.name }}</td>
+        <td>{{ i.user }}</td>
+        <td>{{ i.description }}</td>
+        <td>{{ i.deadline }}</td>
+        <td>{{ i.status }}</td>
+        <td>
+            <a class="btn btn-primary btn-sm" href="{% url 'updatetask' i.id %}">Update</a>
+            <form action="{% url 'deletetask' i.id %}" method="POST">
+                {% csrf_token %}
+                <input class="btn btn-danger btn-sm" type="submit" value="Delete">
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+    <h3 class="text-center">No Data Found</h3>
+{% endif %}
+
+<!-- Button to add task, fixed position to the right side of the screen -->
+<div class="add-task-button">
+    <a href="{% url 'addtask' %}">
+        <button class="btn btn-success">Add Task</button>
+    </a>
+</div>
+
+{% endblock content %}

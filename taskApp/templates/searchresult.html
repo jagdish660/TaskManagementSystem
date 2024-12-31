@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Task Search Results
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Search Results</h2>
+    {% if tasks %}
+        <table  class="table table-hover" border="1">
+            <thead class="table table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for task in tasks %}
+                    <tr>
+                        <td><a href="{% url 'task_detail' task.id %}">{{ task.name }}</a></td>
+                        <td>{{ task.description }}</td>
+                        <td>{{ task.status }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No tasks found matching "{{ query }}".</p>
+    {% endif %}
+</div>
+<div class="text-center mt-4">
+<a class="btn btn-danger" href="{% url 'tasklist' %}">Cancel</a>
+    </div>
+{% endblock %}

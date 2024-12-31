@@ -1,0 +1,382 @@
+/* General Layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fa;
+}
+
+.container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.navbar-brand img {
+    height: 50px;
+}
+
+.navbar-nav .nav-item .nav-link {
+    /* color: #fff; */
+    padding: 10px 15px;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    background-color: #495057;
+    color: #fff;
+}
+
+/* Welcome Message */
+.navbar-nav li p {
+    margin: 0;
+    color: #fff;
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+/* Card Component */
+.card {
+    margin: 20px 0;
+}
+
+.card-header {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.card-body {
+    background-color: #f0f0f0;
+}
+
+.card-footer {
+    background-color: #f8f9fa;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+/* Basic Styling for Page */
+h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Task Addition Form */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #343a40;
+    color: #fff;
+}
+
+table td {
+    background-color: #f9f9f9;
+}
+
+/* Hover effect for table rows */
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Button styling */
+.btn {
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Styling for the 'No Data Found' message */
+h3.text-center {
+    color: #888;
+    font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-nav li p {
+        font-size: 14px;
+    }
+
+    .card-title {
+        font-size: 18px;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    table th, table td {
+        padding: 8px;
+    }
+    
+    .btn {
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Messages */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+ul li.success {
+    color: green;
+}
+
+ul li.error {
+    color: red;
+}
+
+ul li.info {
+    color: blue;
+}
+
+ul li.warning {
+    color: orange;
+}
+
+/* Table Row Hover and Styling */
+.task-table th,
+.task-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.task-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.task-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.task-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.task-table td {
+    font-size: 14px;
+}
+
+/* Table Links */
+.table a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #000000;
+    display: block;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.table a:hover {
+    text-decoration: none;
+    color: #e9e6e6;
+    background-color: rgb(46, 56, 54);
+}
+
+/* Small Icon */
+.small-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+/* Fixed Add Task Button */
+.add-task-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1000;
+}
+
+/* Login and Register Forms */
+.login-container, .register-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #41da85;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(121, 112, 112, 0.1);
+}
+
+.login-container h1, .register-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+.btn-link {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.btn-link:hover {
+    text-decoration: underline;
+}
+
+hr {
+    margin: 20px 0;
+}
+
+/* D-Flex and Footer Styling */
+.d-flex {
+    background-color: #004085;
+}
+
+.foot {
+    background-color: aqua;
+}
+
+.list-group-item{
+    background-color: #4b70c2;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    align-items: center;
+    text-align: center;
+}
+
+.list-group-item a{
+    text-decoration: none;
+    color:#000
+}
+
+.list-group-item:hover{
+    background-color: #76947d;
+    color:rgba(0, 0, 0, 0.1)
+}
+
+#img1,#img2,#img3,#img4,#img5,#img6,#img7,#img8{
+    height:8%;
+    width: 8%;
+    margin: 10px 20px;
+  }
+
