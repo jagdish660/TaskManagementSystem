@@ -41,7 +41,7 @@
       </ul>
       {% if request.user.is_authenticated %}
       <form class="d-flex " style="background-color: #fff;" role="search" action="{% url 'search_tasks' %}">
-        <input class="form-control me-2" type="search" placeholder="Search" name="search_task" aria-label="Search">
+        <input class="form-control me-2" type="search" placeholder="Search tasks..." name="search_task" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
       <div>
@@ -101,7 +101,7 @@
  
   
  <!-- Remove the container if you want to extend the Footer to full width. -->
- <div class="container-fluid my-5">
+ <div class="container-fluid my-5" id="contact">
   <div class="row mt-4 text-center" style="background-color: #f1f1f1;">
     <div class="col-md-12">
       <h2>Contact Us</h2>
