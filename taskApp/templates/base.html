@@ -23,45 +23,71 @@
   <body>
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  
   <div class="container-fluid">
-    <div class="col-1"><a class="navbar-brand" href="{% url 'tasklist' %}"><img style="height:70px" src="{% static 'images/python.png' %}" alt=""></a></div>
-    <div class=""><h2 style="color:black">Task Management System</h2></div>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <!-- <div class="col-1"> -->
+      <a class="navbar-brand" href="{% url 'tasklist' %}">
+        <img style="height:70px" src="{% static 'images/python.png' %}" alt="">
+      </a>
+    <!-- </div> -->
+    <div class="col-3">
+      <h2 class="task-text">Task Management System</h2>
+    </div>
+    <!-- Add the navbar-toggler button for small screens -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse mx-3" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 col-7">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'tasklist' %}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="{% url 'aboutus' %}">About Us</a>
+          <a class="nav-link active" href="{% url 'aboutus' %}">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#contact">Contact Us</a>
+          <a class="nav-link active" href="#contact">Contact</a>
         </li>
+        {% if not request.user.is_authenticated %}
+          {% if request.path == '/register/' %}
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'loginpage' %}">Login</a>
+          </li>
+          {% elif request.path == '/accounts/login/' %}
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'register' %}">Signin</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'loginpage' %}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'register' %}">Signin</a></li>
+          {% endif %}
+        {% endif %}
       </ul>
       {% if request.user.is_authenticated %}
-      <form class="d-flex " style="background-color: #fff;" role="search" action="{% url 'search_tasks' %}">
+      <form class="search-text d-flex m-3" role="search" action="{% url 'search_tasks' %}">
         <input class="form-control me-2" type="search" placeholder="Search tasks..." name="search_task" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
-      <div>
-            <a href="#" id="setting-icon" data-bs-toggle="modal" data-bs-target="#settingModal">
-                <img class="small-icon" style="width: 30px; height: 30px; object-fit: contain;" src="{% static 'images/setting.png' %}" alt="Setting icon">
-            </a>
-        </div>
-        {% endif %}
+      <div class="m-2">
+        <a href="#" id="setting-icon" data-bs-toggle="modal" data-bs-target="#settingModal">
+          <img class="small-icon" style="width: 30px; height: 30px; object-fit: contain;" src="{% static 'images/setting.png' %}" alt="Setting icon">
+        </a>
+      </div>
+      {% endif %}
     </div>
   </div>
 </nav>
 
-
-
 <!--Welcome card  -->
-<div id="settings-popup" class="settings-popup" style="display:none; position: absolute; top: 100px; right: 10px; background: #fff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 15px; border-radius: 5px; width: 200px; z-index: 999;">
+<div id="settings-popup" class="settings-popup" style="display:none; position: absolute; top: 100px; right: 10px; background: #fff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 15px; border-radius: 5px; width: 200px; z-index: 999; border:2px solid #000; background-color:rgb(184, 202, 174);">
     <ul class="list-group">
+    {% if request.user.is_authenticated %}
         <li class="nav-item">
-            <p class="navbar-text">Welcome, {{ request.user.username }}!</p>
+            <p class="navbar-text"><strong>Welcome, {{ request.user.username }}!</strong></p>
         </li>
+        {% endif %}
         <li class="list-group-item">
             <a href="{% url 'logoutpage' %}">Logout</a>
         </li>
@@ -70,18 +96,6 @@
         </li>
     </ul>
 </div>
-
-
-
-    <!-- Popup Card -->
-    <!-- <div id="popupCard" class="popup-card">
-        <div class="popup-card-content">
-            <span id="closeBtn" class="close-btn">&times;</span>
-            <h2>Important Message</h2>
-            <p>{{ message }}</p>  
-        </div>
-    </div> -->
-
 
     {% block content %}
     {% endblock content %}
@@ -97,10 +111,7 @@
       });
     </script>
   </body>
-
- 
   
- <!-- Remove the container if you want to extend the Footer to full width. -->
  <div class="container-fluid my-5" id="contact">
   <div class="row mt-4 text-center" style="background-color: #f1f1f1;">
     <div class="col-md-12">
@@ -117,43 +128,32 @@
   </div>
 
   <footer class="text-center text-white" style="background-color: #f1f1f1; margin-bottom: 0;">
-    <!-- Grid container -->
     <div class="container pt-4">
-      <!-- Section: Social media -->
       <section class="mb-4">
-        <!-- Facebook -->
         <a
           class="btn btn-link btn-floating btn-lg text-dark m-1"
           href="https://www.facebook.com"
           role="button" target="blank"
           data-mdb-ripple-color="dark"
           ><img src="{% static 'images/facebook.png' %}" style="height:25px" alt=""></a>
-
-        <!-- Google -->
         <a
           class="btn btn-link btn-floating btn-lg text-dark m-1"
           href="mailto:jghimire660@gmail.com"
           role="button" target="blank"
           data-mdb-ripple-color="dark"
           ><img src="{% static 'images/google.png' %}" style="height:25px" alt=""></a>
-
-        <!-- Instagram -->
         <a
           class="btn btn-link btn-floating btn-lg text-dark m-1"
           href="https://www.instagram.com/jagdish.660/"
           role="button" target="blank"
           data-mdb-ripple-color="dark"
           ><img src="{% static 'images/instagram.png' %}" style="height:25px" alt=""></a>
-
-        <!-- Linkedin -->
         <a
           class="btn btn-link btn-floating btn-lg text-dark m-1"
           href="https://www.linkedin.com/in/jagdish660/"
           role="button" target="blank"
           data-mdb-ripple-color="dark"
           ><img src="{% static 'images/linkedin.png' %}" style="height:25px" alt=""></a>
-
-        <!-- Github -->
         <a
           class="btn btn-link btn-floating btn-lg text-dark m-1"
           href="https://www.github.com/jagdish660"
@@ -161,16 +161,11 @@
           data-mdb-ripple-color="dark"
           ><img src="{% static 'images/github.png' %}" style="height:25px" alt=""></a>
       </section>
-      <!-- Section: Social media -->
     </div>
-    <!-- Grid container -->
-
-    <!-- Copyright -->
     <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
       © 2020 Copyright:
       <a class="text-dark" href="#">Task Management System</a>
     </div>
-    <!-- Copyright -->
   </footer>
 </div>
 
@@ -178,10 +173,8 @@
   html, body {
     margin: 0;
     padding: 0;
-    min-height: 100%; /* Ensures full height for the page */
+    min-height: 100%; 
   }
 </style>
-
-<!-- End of .container -->
 
 </html>

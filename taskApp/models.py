@@ -21,10 +21,3 @@ class Task(models.Model):
     def __str__(self):
         return f"{self.name} ({self.get_status_display()})"
 
-
-class Search(models.Model):
-    search=models.CharField(max_length=20)
-    
-    def __str__(self):
-        return self.search
-

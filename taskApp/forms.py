@@ -1,5 +1,5 @@
 from django import forms
-from . models import Task,Search
+from . models import Task
 from django.forms.widgets import DateInput
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -48,8 +48,3 @@ class TaskForm(forms.ModelForm):
         widgets = {
             'deadline': DateInput(attrs={'type': 'date'}),
         }
-
-class SearchForm(forms.ModelForm):
-    class Meta:
-        model=Search
-        fields=['search']

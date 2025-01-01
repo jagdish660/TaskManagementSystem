@@ -6,45 +6,27 @@ Update Task
 
 {% block content %}
 <div class="container mt-5">
-{% if messages %}
+    {% if messages %}
       <div class="alert alert-info" role="alert">
         {% for message in messages %}
           <p>{{ message }}</p>
         {% endfor %}
       </div>
     {% endif %}
+
     <h1 class="text-center alert alert-info">Update Task Details</h1>
+
     <form action="" method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <!-- <div class="form-group">
-            <label for="id_name">Task Name</label>
-            {{ form.name }}
-        </div>
+        
         <div class="form-group">
-            <label for="id_description">Description</label>
-            {{ form.description }}
+            {{ form.as_p }}
         </div>
-        <div class="form-group">
-            <label for="id_assigned_user">Assigned User</label>
-            {% if request.user.is_staff %}
-                {{ form.assigned_user }}
-            {% else %}
-                <p class="form-control">{{ task.user }}</p>
-            {% endif %}
-        </div>
-        <div class="form-group">
-            <label for="id_status">Status</label>
-            {{ form.status }}
-        </div>
-        <div class="form-group">
-            <label for="id_deadline">Deadline</label>
-            {{ form.deadline }}
-        </div> -->
 
-
-        <button type="submit" class="btn btn-success">Update Task</button>
-        <a class="btn btn-danger" href="{% url 'tasklist' %}">Cancel</a>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success btn-lg">Update Task</button>
+            <a class="btn btn-danger btn-lg" href="{% url 'tasklist' %}">Cancel</a>
+        </div>
     </form>
 </div>
 {% endblock content %}

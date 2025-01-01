@@ -7,10 +7,9 @@ Portfolio
 {% endblock title %}
 
 {% block content %}
-<div class="portfolio-container">
-    <!-- About Me Section -->
-    <section class="about-container text-center m-3">
-        <!-- <h2>About Me</h2> -->
+<div class="portfolio-container px-0">
+    <section class="about-container text-center m-3 ">
+        <h2 class="py-3 text-center" style="background-color:rgb(228, 228, 228);">About me</h2>
         <p>
         I am a highly dedicated and passionate individual with a deep interest in technology and programming. Currently pursuing a Bachelor of Computer Applications (BCA) at NCIT, I have embraced a rigorous academic journey that challenges me to think critically and innovate effectively. Through hands-on experience and engaging coursework, I have built a strong foundation in computer science, gaining proficiency in programming languages like C, C++, Python, JavaScript, and frameworks like React and Django.
 <br></br>
@@ -20,12 +19,13 @@ Portfolio
       </p>
 
         <div class="education-section">
-            <h2 class="toggle-section p-3" style="background-color:rgb(228, 228, 228);">Education</h2>
+            <h2 class="toggle-section p-3" style="background-color:rgb(228, 228, 228); cursor:pointer;">Education</h2>
             <table class="education-table" border="1">
                 <thead>
                     <tr>
                         <th>Degree</th>
                         <th>Institution</th>
+                        <th>Board</th>
                         <th>Passed Year</th>
                         <th>GPA</th>
                     </tr>
@@ -34,18 +34,21 @@ Portfolio
                     <tr>
                         <td>Secondary School</td>
                         <td>Shree Seti Devi Secondary School</td>
+                        <td><strong>NEB</strong></td>
                         <td>2018</td>
                         <td>3.2</td>
                     </tr>
                     <tr>
                         <td>High School</td>
                         <td>Texas International Secondary School</td>
+                        <td><strong>NEB</strong></td>
                         <td>2021</td>
                         <td>3.21</td>
                     </tr>
                     <tr>
                         <td>Bachelors</td>
                         <td>Nepal College of Information Technology</td>
+                        <td><strong>Pokhara University</strong></td>
                         <td>Running</td>
                         <td>-</td>
                     </tr>
@@ -58,7 +61,7 @@ Portfolio
     <section class="skills-container">
         <h2 class="p-3 text-center" style="background-color:rgb(228, 228, 228);">Skills</h2>
         <div class="img text-center">
-            <img id="img1" class="C" src="{% static 'images/C.png' %}" alt="C">
+            <img id="img3" class="C" src="{% static 'images/C.png' %}" alt="C">
             <img id="img2" class="C++" src="{% static 'images/C++.png' %}" alt="C++">
             <img id="img3" class="html" src="{% static 'images/html.png' %}" alt="HTML scripting">
             <img id="img4" class="css" src="{% static 'images/css.png' %}" alt="CSS">
@@ -73,10 +76,11 @@ Portfolio
         </div>
     </section>
 
+
     <!-- Projects Section -->
-    <section class="projects-container">
-        <h2 class="p-3 text-center" style="background-color:rgb(228, 228, 228);">Projects</h2>
-        <div class="project">
+    <section class="project-container p-0 m-0" style="display: flex; flex-direction: column; border:none">
+        <h2 class="project-col p-3 text-center" style="background-color:rgb(228, 228, 228);">Projects</h2>
+        <div class="project p-2 m-0" style="background-color:beige; border:none">
             <h4><a href="https://github.com/jagdish660/Bank" target="blank" style="color:black; ">Bank Management System</a></h4>
             <p>
           The Banking system developed for second semester project based on C language.
@@ -84,20 +88,20 @@ Portfolio
           A system designed to manage bank operations, account, transactions. Users can login to the system and can perform banking transactions to other accounts, check individuals account balance and change password for self's account.
         </p>
         </div>
-        <div class="project">
+        <div class="project p-2" style="background-color:azure">
             <h4><a href="https://github.com/jagdish660/StudentInformationSystem_In_VBNet" target="blank" style="color:black; ">Student Management System</a></h4>
-            
             <p>
           The Student Management System developed for fourth semester project based on VB.Net.<br></br>
           The system can be used by both school administration and student. Where School administration can check details of all student about their fee and courses, and can manage the account of student. Fee record can be stored on the system.</br>While, Student can login to the system and can checks his/her courses and fee details.
         </p>
-        </div><div class="project">
+        </div>
+        <div class="project p-2" style="background-color:beige">
             <h4><a href="https://github.com/jagdish660/Portfolio" target="blank" style="color:black; ">Portfolio Website</a></h4>
-            
-          <p>
+            <p>
           The portfolio website I developed is a modern and interactive platform built using React. <br><br> It showcases my technical skills, educational background, and projects I've worked on. The website features a clean and user-friendly design, highlighting sections such as "About Me," "Skills," "Projects," and "Contact." It includes an educational timeline, a detailed list of programming languages and frameworks I specialize in, and descriptions of key projects like a Bank Management System and a Student Management System. Additionally, the website incorporates a contact section for easy communication, making it a comprehensive representation of my professional journey and technical expertise.
         </p>
-        </div><div class="project">
+        </div>
+        <div class="project p-2" style="background-color:azure">
             <h4><a href="https://github.com/jagdish660/bookBazaar" target="blank" style="color:black; ">Book Selling Application</a></h4>
             <p>
           The Book Selling platform developed for sixth semester project based on flutter and firebase for database.<br></br>
@@ -106,4 +110,16 @@ Portfolio
         </div>
     </section>
 </div>
+
+<script>
+    document.querySelector('section h2').addEventListener('click', function () {
+        const content = this.nextElementSibling; // The .content div
+        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+    });
+</script>
+
 {% endblock content %}
+
+<style>
+   
+</style>

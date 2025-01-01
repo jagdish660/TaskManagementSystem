@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect, get_object_or_404
-# from django.contrib.postgres.search import SearchVector
 from django.http import HttpResponse
 from django.db.models import Q
 from django.contrib import messages
@@ -12,13 +11,13 @@ from . models import Task
 from django.utils import timezone
 # Create your views here.
 
-@login_required(login_url='loginpage')  # Ensure the user is logged in to access this page
+@login_required(login_url='loginpage')  
 def addtask(request):
     if request.method == 'POST':
         task_name = request.POST.get('task_name')
-        task_description = request.POST.get('task_description')  # Optional
-        task_deadline = request.POST.get('task_deadline')  # User provides the deadline (datetime string)
-        task_assigned = request.POST.get('task_assigned')  # Task assigned user
+        task_description = request.POST.get('task_description')  
+        task_deadline = request.POST.get('task_deadline')  
+        task_assigned = request.POST.get('task_assigned')  
         task_status = request.POST.get('task_status')
         if request.user.is_authenticated:
             if not task_name:
@@ -33,19 +32,19 @@ def addtask(request):
                 deadline = None
             assigned_user = User.objects.get(id=task_assigned)
             task = Task.objects.create(
-                name=task_name,  # Ensure the task name is passed
-                description=task_description,  # Optional field
-                user=assigned_user,  # Assign the user
-                status=task_status,  # Default status
-                deadline=deadline,  # Deadline can be None or user-provided
-                addedby=user  # Associate the user who adds the task
+                name=task_name,  
+                description=task_description, 
+                user=assigned_user,  
+                status=task_status,  
+                deadline=deadline,  
+                addedby=user  
             )
-            return redirect('tasklist')  # Redirect after task creation
+            return redirect('tasklist')  
         else:
-            return redirect('login')  # Redirect to login page if the user is not authenticated
+            return redirect('login')  
     else:
-        users = User.objects.all()  # Fetch all users in the system
-        return render(request, 'index.html', {'users': users})  # Render the add task form when it's a GET request
+        users = User.objects.all()  
+        return render(request, 'index.html', {'users': users})  
     
     
 @login_required(login_url='loginpage')
@@ -57,14 +56,13 @@ def task_list(request):
     return render(request, 'home.html', {'tasks': tasks})
 
 
-
 @login_required(login_url='loginpage')
 def deletetask(request,id):
     if request.method=="POST":
         data = Task.objects.get(pk=id)
         data.delete()
-        # messages.success(request,"Your data deleted successfully!!")
         return redirect('tasklist')
+
 
 @login_required(login_url='loginpage')
 def updatetask(request, id):
@@ -73,28 +71,30 @@ def updatetask(request, id):
     if request.method == "POST":
         form = TaskForm(request.POST, instance=task)
         if form.is_valid():
-            form.save()  # Save the updated task
-            # messages.success(request, "Task updated successfully!")
-            return redirect('tasklist')  # Redirect to the task list page
+            form.save()  
+            return redirect('tasklist') 
         else:
             messages.error(request, "There was an error updating the task.") 
     else:
-        form = TaskForm(instance=task)  # Initialize the form with the current task data
+        form = TaskForm(instance=task)  
     return render(request, 'update.html', {'form': form, 'task': task})
+
 
 @login_required(login_url='loginpage')
 def search_tasks(request):
-    query = request.GET.get('search_task')  # Get the search query from the URL parameters
+    query = request.GET.get('search_task')  
     tasks = Task.objects.filter(
         Q(name__icontains=query) | Q(description__icontains=query)
     ) if query else []  # Case-insensitive search in name or description
     return render(request, 'searchresult.html', {'tasks': tasks, 'query': query})
 
+
 @login_required(login_url='loginpage')
 def task_detail(request, id):
     task = get_object_or_404(Task, id=id)  # Fetch the task by ID or return a 404 error
     return render(request, 'task_detail.html', {'task': task})
-    
+
+
 def register(request):
     if request.method == "GET":
         form = CustomUserCreationForm()
@@ -107,7 +107,8 @@ def register(request):
                 return redirect('loginpage')
         else:
             return render(request, 'register.html', {'form': form})
-        
+
+
 def loginpage(request):
     if request.method=="GET":
         form=AuthenticationForm()
@@ -135,15 +136,16 @@ def change_password(request):
         form = ChangePasswordForm(user=request.user, data=request.POST)
         if form.is_valid():
             form.save()
-            update_session_auth_hash(request, form.user)  # Keep the user logged in after password change
+            update_session_auth_hash(request, form.user)  
             messages.success(request, 'Your password has been changed successfully!')
-            return redirect('tasklist')  # Redirect to the change password page or home
+            return redirect('tasklist') 
         else:
             messages.error(request, 'There was an error with your password change.')
     else:
         form = ChangePasswordForm(user=request.user)
     
     return render(request, 'change_password.html', {'form': form})
+
 
 def aboutus(request):
     return render(request, 'aboutus.html')
